@@ -1,0 +1,22 @@
+.text{
+    width: 1199px;
+    height: 87px;
+    margin-left: 320px;
+    font-family: 'Grand Hotel';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 87px;
+    color: #FFFFFF;
+    border: none;
+    margin-top: 300px;
+}
+
+.background{
+    background-size: cover;
+    height: 90px;
+    left: 0px;
+    top: 1251px;
+    background: linear-gradient(180deg, #847C7C 0%, rgba(0, 0, 0, 0) 80%);
+    mix-blend-mode: luminosity;
+}

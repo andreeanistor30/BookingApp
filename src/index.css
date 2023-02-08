@@ -1,0 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Grand+Hotel&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inika&display=swap');
+body {
+  margin: 0 0;
+  font-family: 'Inter', sans-serif;
+  background: white no-repeat;
+  height: fit-content;
+}

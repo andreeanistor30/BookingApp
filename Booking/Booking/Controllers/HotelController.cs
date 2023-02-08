@@ -1,0 +1,87 @@
+﻿using Booking.DataTransferObjects;
+using Booking.Services.HotelServices;
+using BookingApp.Models.Domain;
+using Microsoft.AspNetCore.Mvc;
+
+namespace Booking.Controllers
+{
+    [ApiController]
+    [Route("hotels")]
+    public class HotelController : ControllerBase
+    {
+        private readonly IHotelService service;
+
+        public HotelController(IHotelService service)
+        {
+            this.service = service;
+        }
+
+        [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public ActionResult<IEnumerable<Hotel>>GetAllHotels()
+        {
+            var item = service.GetAllHotel();
+            if (item == null)
+                return NotFound();
+            else
+                return Ok(item);
+        }
+
+        [HttpGet("{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public ActionResult<Hotel>GetById(Guid id)
+        {
+            var item = service.GetHotelBy(id);
+
+            if (item == null)
+            {
+                return NotFound("Couldn't find the hotel with this id");
+            }
+            else
+                return Ok(item);
+        }
+
+        [HttpPost]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public ActionResult<Hotel> InsertHotel(HotelDTO hotel)
+        {
+            var newHotel=service.InsertHotel(hotel);
+            if (newHotel != null)
+            {
+                return Ok();
+            }
+            else return NotFound("Couldn't insert this hotel");
+        }
+
+        [HttpDelete]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+
+        public ActionResult Delete(Guid id)
+        {
+            var item=service.DeleteHotel(id);
+            if (item != null)
+                return Ok();
+            else 
+                return NotFound();
+
+        }
+
+        [HttpPut]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public ActionResult Update(Hotel h)
+        {
+            var hotel=service.UpdateHotel(h);
+            if (hotel != null)
+                return Ok();
+            else return NotFound();
+        }
+
+
+
+    }
+}
