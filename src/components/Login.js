@@ -14,6 +14,7 @@ const Login = () => {
     const [emptyUsernameError, setEmptyUsernameError] = useState(false);
     const [emptyPasswordError, setEmptyPasswordError] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
+    const navigate = useNavigate();
 
     const handleFormData = (event) => {
         const { name, value } = event.target
@@ -59,6 +60,7 @@ const Login = () => {
            
         else{
             console.log("Yes");
+            navigate("/mainpage");
         }
             
     }

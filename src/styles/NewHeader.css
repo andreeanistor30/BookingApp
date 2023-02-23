@@ -1,0 +1,62 @@
+.user-photo{
+    width: 30px;
+    height: 30px;
+    margin-left: 1099px;
+    margin-top: 7px;
+}
+
+.header-logout-button{
+    width: 107px;
+    height: 25px;
+    margin-left: 32px;
+    margin-top: 10px;
+    background: #B2ADAD;
+    border-radius: 10px;
+    border:none;
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 26px;
+    color: white;
+}  
+
+.header
+{
+    display: flex;
+    flex-direction: column;
+    background-image: url("C:\Users\nisto\bookingapp\src\image\mykonianplatinumvilla02 1.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+  .textOnPhoto
+{   
+    margin-left: 261px;
+    margin-top: 185px;
+    margin-bottom: 0px;
+    font-family: 'Grand Hotel';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 64px;
+    line-height: 87px;
+    color: #FFFFFF;
+
+} 
+
+.subTextOnPhoto{
+    margin-left:314px;
+    margin-top:0px; 
+    font-family: 'Grand Hotel';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 49px;
+    color: #FFFFFF;
+    mix-blend-mode: lighten;
+}
+
+.div_button{
+    display: flex;
+    flex-direction: row;
+}

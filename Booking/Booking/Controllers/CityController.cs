@@ -30,9 +30,10 @@ namespace Booking.Controllers
             else return NotFound("Couldn't insert this city");
         }
 
-        [HttpPost("get")]
+        [HttpPost]
+        [Route("get")]
 
-        public ActionResult<CityWrapper> GetAllCity(PaginationParameters paginationParams)
+        public ActionResult<CityWrapper> GetAllCity(CityPaginationParameters paginationParams)
         {
             if (!paginationParams.ValidParameters())
             {

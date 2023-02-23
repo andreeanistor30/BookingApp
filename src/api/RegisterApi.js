@@ -2,7 +2,6 @@ import axios from "axios"
 import {REGISTER_URL} from "../utils/UrlConstants"
 export default async (firstname, lastname, country, adress, email, username, password) => {
     try{
-        console.log(email)
         const response = await axios.post(REGISTER_URL,{
             firstname: firstname,
             lastname: lastname,

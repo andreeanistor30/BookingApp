@@ -4,23 +4,21 @@ namespace Booking.Pagination
 {
     public class PaginationParameters
     {
-        const int maxPageSize = 20;
-
+        const int maxPageSize = 50;
         public int PageNumber { get; set; } = 1;
-
-        public int pageSize = 6;
+        private int _pageSize = 10;
         public int PageSize
         {
             get
             {
-                return pageSize;
+                return _pageSize;
             }
-
             set
             {
-                pageSize = value > maxPageSize ? maxPageSize: value ;
+                _pageSize = value > maxPageSize ? maxPageSize : value;
             }
         }
+
 
         public struct SortingParams
         {
@@ -34,7 +32,7 @@ namespace Booking.Pagination
         public bool ValidParameters()
         {
             if (PageNumber < 0) { return false; }
-            if(PageSize < 0) { return false; }
+            if (PageSize < 0) { return false; }
             return true;
         }
     }

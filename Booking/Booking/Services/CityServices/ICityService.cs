@@ -9,6 +9,6 @@ namespace Booking.Services.CityServices
     {
         public City? InsertCity(CityDTO city);
 
-        public CityWrapper GetAll(PaginationParameters paginationParameters);
+        public CityWrapper GetAll(CityPaginationParameters paginationParameters);
     }
 }

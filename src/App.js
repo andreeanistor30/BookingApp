@@ -5,6 +5,7 @@ import { Routes, Route } from "react-router-dom";
 import { BrowserRouter as Router } from "react-router-dom";
 import Login from './pages/LoginPage';
 import Register from './pages/NewAccountPage';
+import ModifiedMainPage from './pages/ModifiedMainPage';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route exact path='/' element={< MainPage />}></Route>
           <Route exact path='/login' element={< Login />}></Route>
           <Route exact path='/register' element={< Register />}></Route>
+          <Route exact path='/mainpage' element={<ModifiedMainPage />}></Route>
         </Routes>
       </Router>
     </div>

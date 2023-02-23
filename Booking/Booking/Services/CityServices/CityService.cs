@@ -15,7 +15,7 @@ namespace Booking.Services.CityServices
             this.context = context;
         }
 
-        public CityWrapper GetAll(PaginationParameters paginationParameters)
+        public CityWrapper GetAll(CityPaginationParameters paginationParameters)
         {
             IEnumerable<City> cities = context.Cities.ToList();
 
@@ -45,8 +45,13 @@ namespace Booking.Services.CityServices
                         break;
                 }
             }
-            //Getting the right page
-            cities = cities.Skip((paginationParameters.PageNumber - 1) * paginationParameters.PageSize).Take(paginationParameters.PageSize).ToList();
+
+            if (string.IsNullOrEmpty(paginationParameters.SearchByCityName) != true)
+            {
+                cities = cities.Where(x => x.Name.Contains(paginationParameters.SearchByCityName));
+            }
+
+            cities = cities.Skip((paginationParameters.PageNumber - 1) * paginationParameters.PageSize).Take(paginationParameters.PageSize);
 
             CityWrapper citiesWrapper = new CityWrapper(cities.ToList(), context.Cities.Count(), cities.ToList().Count());
 
