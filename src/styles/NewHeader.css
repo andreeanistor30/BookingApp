@@ -9,7 +9,7 @@
     width: 107px;
     height: 25px;
     margin-left: 32px;
-    margin-top: 10px;
+    margin-top: 15px;
     background: #B2ADAD;
     border-radius: 10px;
     border:none;
@@ -59,4 +59,13 @@
 .div_button{
     display: flex;
     flex-direction: row;
+}
+
+.div-firstname{
+    width: 95px;
+    height: 26px;
+    margin-left: 10px;
+    margin-top: 15px;
+    font-family: 'Inika';
+    color:black;
 }

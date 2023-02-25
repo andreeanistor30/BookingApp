@@ -60,6 +60,10 @@ const Login = () => {
            
         else{
             console.log("Yes");
+            localStorage.setItem("user",JSON.stringify({
+                firstName:response.firstName
+            }
+            ))
             navigate("/mainpage");
         }
             
