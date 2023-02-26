@@ -4,6 +4,8 @@ import account_icon from "../image/account.png"
 import new_user from "../image/new-user.png"
 import {useState} from "react"
 import RegisterApi from "../api/RegisterApi"
+import { useNavigate } from "react-router-dom"
+
 const NewAccount = () => {
     const [formData, setFormData] = useState({
         firstname: "",
@@ -15,6 +17,15 @@ const NewAccount = () => {
         password: ""
 })
 
+const [emptyUsernameError, setEmptyUsernameError] = useState(false);
+const [emptyPasswordError, setEmptyPasswordError] = useState(false);
+const [emptyFirstNameError, setEmptyFirstNameError] = useState(false);
+const [emptyLastNameError, setEmptyLastNameError] = useState(false);
+const [emptyCountryError, setEmptyCountryError] = useState(false);
+const [emptyAdressError, setEmptyAdressError] = useState(false);
+const [emptyEmailError, setEmptyEmailError] = useState(false);
+const navigate = useNavigate();
+
 const handleFormData = (event) => {
     const { name, value } = event.target
     setFormData(prevFormData => {
@@ -25,7 +36,24 @@ const handleFormData = (event) => {
     })
 }
 
+const validateFormData = () =>{
+    setEmptyFirstNameError(false);
+    setEmptyLastNameError(false);
+    setEmptyCountryError(false);
+    setEmptyAdressError(false);
+    setEmptyEmailError(false);
+    setEmptyUsernameError(false);
+    setEmptyPasswordError(false);
+
+    if(formData.firstname!=null && formData.lastname!=null && formData.adress!=null && formData.country!=null && formData.email!=null && formData.username!=null && formData.password!=null)
+    {
+        return true;
+    }
+
+}
+
 const registerFunction = async () => {
+    if(validateFormData()){
     const response = await RegisterApi(
         formData.firstname,
         formData.lastname,
@@ -35,10 +63,19 @@ const registerFunction = async () => {
         formData.username,
         formData.password
     )
-    if (response.isError)
-        console.log('No')
+    if (response.isError){
+        setEmptyFirstNameError(true);
+        setEmptyLastNameError(true);
+        setEmptyAdressError(true);
+        setEmptyCountryError(true);
+        setEmptyEmailError(true);
+        setEmptyUsernameError(true);
+        setEmptyPasswordError(true);
+    }
     else
-        console.log("Yes")
+        navigate("/login");
+        
+}
 }
 
     return (
