@@ -28,5 +28,21 @@ namespace Booking.Services.BookingService
             return booking;
 
         }
+
+        public List<BookingModel> GetBooking(DateTime checkin, DateTime checkout, string city)
+        {
+            var existingCity = context.Cities.Where(c => c.Name == city).FirstOrDefault();
+            if (existingCity != null)
+            {
+                var booking = context.Booking.Where(b => b.Checkin < checkin && b.Checkout < checkout).ToList();
+                if (booking != null)
+                {
+                    return booking;
+                }
+                else return null;
+            }
+            else return null;
+
+        }
     }
 }

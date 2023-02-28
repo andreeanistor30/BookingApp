@@ -17,7 +17,6 @@ namespace Booking.Controllers
         }
 
         [HttpPost]
-
         public ActionResult<BookingModel>InsertBooking(BookingDTO booking)
         {
             var newBooking = service.InsertBooking(booking);
@@ -30,7 +29,21 @@ namespace Booking.Controllers
                 return NotFound();
         }
 
-       
-      
+        [HttpGet]
+        public ActionResult<IEnumerable<BookingDTO>> GetBooking(DateTime checkin, DateTime checkout, string city)
+        {
+            var booking = service.GetBooking(checkin, checkout, city);
+
+            if(booking != null)
+            {
+                return Ok(booking);
+            }
+            else 
+                return NotFound();
+            
+        }
+
+
+
     }
 }
