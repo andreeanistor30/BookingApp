@@ -28,14 +28,14 @@ namespace Booking.Controllers
                 return Ok(User);
         }
 
-        //[HttpDelete]
-        //public ActionResult<User> DeleteUser(Guid Id)
-        //{
-        //    var user = service.DeleteUser(Id);
-        //    if (user == null)
-        //        return NotFound();
-        //    else
-        //        return Ok(user);
-        //}
+        [HttpDelete]
+        public ActionResult<User> DeleteUser(Guid Id)
+        {
+            var user = service.DeleteUser(Id);
+            if (user == null)
+                return NotFound();
+            else
+                return Ok(user);
+        }
     }
 }

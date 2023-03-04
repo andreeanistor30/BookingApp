@@ -15,5 +15,7 @@ namespace BookingApp.Models.Domain
         public string Category { get; set; }
 
         public byte[] Image { get; set; } 
+
+        public IEnumerable<Room> Rooms { get; set; }
     }
 }

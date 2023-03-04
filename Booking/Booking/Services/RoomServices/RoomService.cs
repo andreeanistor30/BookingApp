@@ -1,4 +1,6 @@
-﻿using Booking.Models.Domain;
+﻿using Booking.DataTransferObjects;
+using Booking.Models.Domain;
+using BookingApp.Models.Domain;
 
 namespace Booking.Services.RoomServices
 {
@@ -18,16 +20,19 @@ namespace Booking.Services.RoomServices
             return room;
         }
 
-        public Room? InsertRoom(Room newRoom)
+        public Room? InsertRoom(RoomDTO newRoom)
         {
-            var room = context.Hotels.Where(r => r.Id == newRoom.Id).FirstOrDefault();
-            if (room == null)
+            var room = new Room
             {
-                context.Rooms.Add(newRoom);
-                context.SaveChanges();
-                return newRoom;
-            }
-            else return null;
+               Hotel = newRoom.Hotel,
+               NumberOfRooms= newRoom.NumberOfRooms,
+               Price = newRoom.Price,
+               RoomType = newRoom.RoomType
+            };
+            context.Rooms.Add(room);
+            context.SaveChanges();
+            return room;
+
         }
 
         public Room? DeleteRoom(Guid Id)

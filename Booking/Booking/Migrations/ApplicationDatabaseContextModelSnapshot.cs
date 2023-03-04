@@ -34,18 +34,23 @@ namespace Booking.Migrations
                     b.Property<DateTime>("Checkout")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid>("RoomId")
+                    b.Property<Guid?>("HotelId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("RoomTypeId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<double>("TotalPrice")
                         .HasColumnType("float");
 
-                    b.Property<Guid>("UserId")
+                    b.Property<Guid?>("UserId")
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("RoomId");
+                    b.HasIndex("HotelId");
+
+                    b.HasIndex("RoomTypeId");
 
                     b.HasIndex("UserId");
 
@@ -197,19 +202,21 @@ namespace Booking.Migrations
 
             modelBuilder.Entity("Booking.Models.Domain.BookingModel", b =>
                 {
-                    b.HasOne("Booking.Models.Domain.Room", "Room")
+                    b.HasOne("BookingApp.Models.Domain.Hotel", "Hotel")
                         .WithMany()
-                        .HasForeignKey("RoomId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("HotelId");
+
+                    b.HasOne("Booking.Models.Domain.RoomType", "RoomType")
+                        .WithMany()
+                        .HasForeignKey("RoomTypeId");
 
                     b.HasOne("Booking.Models.Domain.User", "User")
                         .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("UserId");
 
-                    b.Navigation("Room");
+                    b.Navigation("Hotel");
+
+                    b.Navigation("RoomType");
 
                     b.Navigation("User");
                 });
@@ -228,7 +235,7 @@ namespace Booking.Migrations
             modelBuilder.Entity("Booking.Models.Domain.Room", b =>
                 {
                     b.HasOne("BookingApp.Models.Domain.Hotel", "Hotel")
-                        .WithMany()
+                        .WithMany("Rooms")
                         .HasForeignKey("HotelId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -247,6 +254,11 @@ namespace Booking.Migrations
             modelBuilder.Entity("Booking.Models.Domain.CityType", b =>
                 {
                     b.Navigation("City");
+                });
+
+            modelBuilder.Entity("BookingApp.Models.Domain.Hotel", b =>
+                {
+                    b.Navigation("Rooms");
                 });
 #pragma warning restore 612, 618
         }

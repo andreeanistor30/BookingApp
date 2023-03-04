@@ -17,7 +17,7 @@ namespace Booking.Controllers
         }
 
         [HttpPost]
-        public ActionResult<BookingModel>InsertBooking(BookingDTO booking)
+        public ActionResult<BookingModel> InsertBooking(BookingDTO booking)
         {
             var newBooking = service.InsertBooking(booking);
 
@@ -25,23 +25,37 @@ namespace Booking.Controllers
             {
                 return Ok(newBooking);
             }
-            else 
+            else
                 return NotFound();
         }
 
-        [HttpGet]
-        public ActionResult<IEnumerable<BookingDTO>> GetBooking(DateTime checkin, DateTime checkout, string city)
+        [HttpDelete]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+
+        public ActionResult Delete(Guid id)
         {
-            var booking = service.GetBooking(checkin, checkout, city);
-
-            if(booking != null)
-            {
-                return Ok(booking);
-            }
-            else 
+            var item = service.DeleteBooking(id);
+            if (item != null)
+                return Ok();
+            else
                 return NotFound();
-            
+
         }
+
+        //[HttpGet]
+        //public ActionResult<IEnumerable<BookingDTO>> GetBooking(DateTime checkin, DateTime checkout, string city)
+        //{
+        //    var booking = service.GetBooking(checkin, checkout, city);
+
+        //    if(booking != null)
+        //    {
+        //        return Ok(booking);
+        //    }
+        //    else 
+        //        return NotFound();
+
+        //}
 
 
 

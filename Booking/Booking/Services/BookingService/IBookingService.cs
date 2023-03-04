@@ -7,6 +7,8 @@ namespace Booking.Services.BookingService
     {
         public BookingModel? InsertBooking(BookingDTO bookingDTO);
 
-        public List<BookingModel> GetBooking(DateTime checkin, DateTime checkout, string city);
+        public BookingModel? DeleteBooking(Guid Id);
+
+        //public List<BookingModel> GetBooking(DateTime checkin, DateTime checkout, string city);
     }
 }

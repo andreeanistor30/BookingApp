@@ -1,4 +1,5 @@
-﻿using Booking.Models.Domain;
+﻿using Booking.DataTransferObjects;
+using Booking.Models.Domain;
 using Booking.Services.RoomServices;
 using Microsoft.AspNetCore.Mvc;
 
@@ -44,7 +45,7 @@ namespace Booking.Controllers
         }
 
         [HttpPost]
-        public ActionResult<Room> InsertRoom(Room room)
+        public ActionResult<Room> InsertRoom(RoomDTO room)
         {
             var Room = service.InsertRoom(room);
             if(Room == null)

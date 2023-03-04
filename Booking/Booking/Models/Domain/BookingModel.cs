@@ -11,7 +11,7 @@ namespace Booking.Models.Domain
         public Guid Id { get; set; }
 
         [ForeignKey("UserId")]
-        public User User { get; set; }
+        public User? User { get; set; }
 
         public DateTime Checkin { get; set; }
 
@@ -19,7 +19,10 @@ namespace Booking.Models.Domain
 
         public double TotalPrice { get; set; }
 
-        [ForeignKey("RoomId")]
-        public Room Room { get; set; }
+        [ForeignKey("HotelId")]
+        public Hotel? Hotel { get; set; }
+
+        [ForeignKey("RoomTypeId")]
+        public RoomType? RoomType { get; set; }
     }
 }

@@ -29,6 +29,8 @@ namespace Booking
 
         public DbSet<CityType> CitiesType { get; set; }
 
+        public DbSet<RoomType> RoomType { get; set; }
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

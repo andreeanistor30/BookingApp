@@ -1,4 +1,5 @@
-﻿using Booking.Models.Domain;
+﻿using Booking.DataTransferObjects;
+using Booking.Models.Domain;
 
 namespace Booking.Services.RoomServices
 {
@@ -8,7 +9,7 @@ namespace Booking.Services.RoomServices
 
         public Room? GetRoomBy(Guid Id);
 
-        public Room? InsertRoom(Room room);
+        public Room? InsertRoom(RoomDTO newRoom);
 
         public Room? DeleteRoom(Guid Id);
 
