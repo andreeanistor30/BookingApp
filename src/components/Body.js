@@ -13,6 +13,9 @@ export default function Body(){
     const onClickLogin = () => {
         navigate('/bookingspage')
     }
+    const onClickFct = () => {
+        navigate('/hotelspage')
+    }
     return (
         <div>
             <input type="search" className="body-destination-input" placeholder="Where are you going?"/>
@@ -26,14 +29,17 @@ export default function Body(){
             <Card
                  img={mountainImage}
                  btnText="Mountain"
+                 onClickFunction={onClickFct}
             />
             <Card
                 img={seaImage}
                 btnText="Sea"
+                onClickFunction={onClickFct}
             />
             <Card
                 img={cityBreak}
                 btnText="City break"
+                onClickFunction={onClickFct}
                 />
             </div>
         </div>

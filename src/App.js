@@ -7,6 +7,7 @@ import Login from './pages/LoginPage';
 import Register from './pages/NewAccountPage';
 import ModifiedMainPage from './pages/ModifiedMainPage';
 import BookingsPage from './pages/BookingsPage'
+import HotelsPage from './pages/HotelsPage'
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route exact path='/register' element={< Register />}></Route>
           <Route exact path='/mainpage' element={<ModifiedMainPage />}></Route>
           <Route exact path='/bookingspage' element={<BookingsPage />}></Route>
+          <Route exact path='/hotelspage' element={<HotelsPage />}></Route>
         </Routes>
       </Router>
     </div>

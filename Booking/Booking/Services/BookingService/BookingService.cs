@@ -25,7 +25,7 @@ namespace Booking.Services.BookingService
                 Checkin = bookingDTO.Checkin,
                 Checkout = bookingDTO.Checkout,
                 Hotel = hotel,
-                RoomType= roomType
+                RoomType = roomType
 
             };
 
@@ -46,25 +46,28 @@ namespace Booking.Services.BookingService
             }
             else return null;
         }
-
-        //public List<BookingModel> GetBooking(DateTime checkin, DateTime checkout, string city)
-        //{
-        //    var existingCity = context.Cities.Where(c => c.Name == city).FirstOrDefault();
-        //    if (existingCity != null)
-        //    {
-        //        var booking = context.Booking.Where(b => checkin >= b.Checkin && checkin <= b.Checkout
-        //                                            || (checkout>=b.Checkin && checkout<=b.Checkout)
-        //                                            || (b.Checkin>=checkin && b.Checkin <= checkout)
-        //                                            || (b.Checkout >=checkin && b.Checkout <= checkout)).ToList();
-        //        if (booking != null)
-        //        {
-
-        //        }
-        //        else return null;
-        //    }
-        //    else return null;
-
-        //}
-        //}
     }
 }
+
+    //    public List<BookingModel> GetBooking(DateTime checkin, DateTime checkout, string city)
+    //    {
+    //        var existingCity = context.Cities.Where(c => c.Name == city).FirstOrDefault();
+    //        if (existingCity != null)
+    //        {
+    //            var booking = context.Booking.Where(b => checkin >= b.Checkin && checkin <= b.Checkout
+    //                                                || (checkout >= b.Checkin && checkout <= b.Checkout)
+    //                                                || (b.Checkin >= checkin && b.Checkin <= checkout)
+    //                                                || (b.Checkout >= checkin && b.Checkout <= checkout)).ToList();
+    //            if (booking != null)
+    //            {
+
+    //            }
+    //            else return null;
+    //        }
+    //        else return null;
+
+    //    }
+    //}
+
+
+

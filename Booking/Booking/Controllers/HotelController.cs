@@ -17,8 +17,6 @@ namespace Booking.Controllers
         }
 
         [HttpGet]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public ActionResult<IEnumerable<Hotel>>GetAllHotels()
         {
             var item = service.GetAllHotel();
@@ -29,8 +27,6 @@ namespace Booking.Controllers
         }
 
         [HttpGet("{id}")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public ActionResult<Hotel>GetById(Guid id)
         {
             var item = service.GetHotelBy(id);
@@ -44,8 +40,6 @@ namespace Booking.Controllers
         }
 
         [HttpPost]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public ActionResult<Hotel> InsertHotel(HotelDTO hotel)
         {
             var newHotel=service.InsertHotel(hotel);
@@ -57,8 +51,6 @@ namespace Booking.Controllers
         }
 
         [HttpDelete]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
 
         public ActionResult Delete(Guid id)
         {
@@ -71,13 +63,21 @@ namespace Booking.Controllers
         }
 
         [HttpPut]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public ActionResult Update(Hotel h)
         {
             var hotel=service.UpdateHotel(h);
             if (hotel != null)
                 return Ok();
+            else return NotFound();
+        }
+
+        [HttpGet("/getByFilter")]
+        public ActionResult<Hotel> GetHotelsByFilter(string filter)
+        {
+            var hotels = service.GetHotelsWithFilter(filter);
+
+            if (hotels != null)
+                return Ok(hotels);
             else return NotFound();
         }
 

@@ -48,11 +48,11 @@ namespace Booking.Controllers
         //{
         //    var booking = service.GetBooking(checkin, checkout, city);
 
-        //    if(booking != null)
+        //    if (booking != null)
         //    {
         //        return Ok(booking);
         //    }
-        //    else 
+        //    else
         //        return NotFound();
 
         //}

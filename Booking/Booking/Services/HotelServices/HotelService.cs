@@ -67,5 +67,14 @@ namespace Booking.Services.HotelServices
             else return null;
         }
 
+        public IEnumerable<Hotel>? GetHotelsWithFilter(string type)
+        {
+            var hotels = context.Hotels.Where(h => h.Category.Equals(type)).ToList();
+
+            if (hotels != null)
+                return hotels;
+            else return null;
+        }
+
     }
 }

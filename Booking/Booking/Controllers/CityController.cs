@@ -33,7 +33,7 @@ namespace Booking.Controllers
         [HttpPost]
         [Route("get")]
 
-        public ActionResult<CityWrapper> GetAllCity(CityPaginationParameters paginationParams)
+        public ActionResult<IEnumerable<CityWrapper>> GetAllCity(CityPaginationParameters paginationParams)
         {
             if (!paginationParams.ValidParameters())
             {
@@ -42,7 +42,11 @@ namespace Booking.Controllers
 
             CityWrapper citiesWrapper = service.GetAll(paginationParams);
 
-            return citiesWrapper;
+            if (citiesWrapper != null)
+            {
+                return Ok(citiesWrapper.Cities);
+            }
+            else return NotFound();
    
         }
     }
