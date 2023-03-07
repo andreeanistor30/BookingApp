@@ -5,23 +5,45 @@ import seaImage from "../image/pexels-fabian-wiktor-994605 1.png";
 import destinations from "../image/image.jpg";
 import cityBreak from "../image/citybreak.jpg";
 import Card from '../components/Card';
+import SearchBar from "./SearchBar";
 import { useNavigate } from 'react-router-dom'
+import HotelsApi from "../api/HotelsApi";
+import SearchBarApi from "../api/SearchBarApi";
+import { useEffect, useState } from "react";
 export default function Body(){
 
     const navigate = useNavigate();
+    
+    const [listOfCities, setListOfCities] = useState([]);
 
-    const onClickLogin = () => {
+    const searchInput = async () => {
+        const response = await SearchBarApi();
+        setListOfCities(response);
+    }
+
+    const onClickLogin = async () => {
         navigate('/bookingspage')
     }
-    const onClickFct = () => {
-        navigate('/hotelspage')
+
+    const getHotels = async (filter) => {
+       // navigate('/hotelspage')
+        // const response = await HotelsApi(filter);
     }
+
+    useEffect(() => {
+        searchInput()
+    }, []);
+
     return (
         <div>
-            <input type="search" className="body-destination-input" placeholder="Where are you going?"/>
+             <SearchBar
+                placeholder = "Search a town"
+                data = {listOfCities}
+            />
             <input type="date" className="body-checkin-input" placeholder="Check-in"/>
             <input type="date" className="body-checkout-input" placeholder="Check-out"/>
             <button type="button" className="body-search-button" onClick={onClickLogin}>Search</button>
+
             <h2 className="destinations">The most popular destinations</h2> 
             <img src={destinations} className="destinations-image"/>
             <h2 className="trip">Choose the perfect trip</h2>
@@ -29,17 +51,17 @@ export default function Body(){
             <Card
                  img={mountainImage}
                  btnText="Mountain"
-                 onClickFunction={onClickFct}
+               //  onClickFunction={getHotels('Mountain')}
             />
             <Card
                 img={seaImage}
                 btnText="Sea"
-                onClickFunction={onClickFct}
+                //onClickFunction={getHotels('Sea')}
             />
             <Card
                 img={cityBreak}
                 btnText="City break"
-                onClickFunction={onClickFct}
+             //   onClickFunction={getHotels('CityBreak')}
                 />
             </div>
         </div>

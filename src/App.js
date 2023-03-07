@@ -18,8 +18,8 @@ function App() {
           <Route exact path='/login' element={< Login />}></Route>
           <Route exact path='/register' element={< Register />}></Route>
           <Route exact path='/mainpage' element={<ModifiedMainPage />}></Route>
-          <Route exact path='/bookingspage' element={<BookingsPage />}></Route>
-          <Route exact path='/hotelspage' element={<HotelsPage />}></Route>
+          {/* <Route exact path='/bookingspage' element={<BookingsPage />}></Route> */}
+          {/* <Route exact path='/hotelspage' element={<HotelsPage />}></Route> */}
         </Routes>
       </Router>
     </div>

@@ -3,7 +3,8 @@ import "../styles/Card.css"
 export default function Card({
     img,
     btnText,
-    onClickFunction
+    onClickFunction,
+    type
 }){
     return(
         <div className="cards">

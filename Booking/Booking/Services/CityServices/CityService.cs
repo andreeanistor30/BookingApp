@@ -15,47 +15,10 @@ namespace Booking.Services.CityServices
             this.context = context;
         }
 
-        public CityWrapper GetAll(CityPaginationParameters paginationParameters)
+        public IEnumerable<City> GetAll()
         {
             IEnumerable<City> cities = context.Cities.ToList();
-
-            if (paginationParameters.SortingParameters != null)
-            {
-                switch (paginationParameters.SortingParameters.Value.SortingCriteria)
-                {
-                    case "Name":
-                        if (paginationParameters.SortingParameters.Value.AscendingOrder)
-                        {
-                            cities = cities.OrderBy(c => c.Name);
-                        }
-                        else
-                        {
-                            cities = cities.OrderByDescending(c => c.Name);
-                        }
-                        break;
-                    case "Country":
-                        if (paginationParameters.SortingParameters.Value.AscendingOrder)
-                        {
-                            cities = cities.OrderBy(c => c.Country);
-                        }
-                        else
-                        {
-                            cities = cities.OrderByDescending(c => c.Country);
-                        }
-                        break;
-                }
-            }
-
-            if (string.IsNullOrEmpty(paginationParameters.SearchByCityName) != true)
-            {
-                cities = cities.Where(x => x.Name.Contains(paginationParameters.SearchByCityName));
-            }
-
-            cities = cities.Skip((paginationParameters.PageNumber - 1) * paginationParameters.PageSize).Take(paginationParameters.PageSize);
-
-            CityWrapper citiesWrapper = new CityWrapper(cities.ToList(), context.Cities.Count(), cities.ToList().Count());
-
-            return citiesWrapper;
+            return cities;
         }
 
         public City? InsertCity(CityDTO newCity)
