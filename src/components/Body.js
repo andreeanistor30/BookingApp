@@ -25,14 +25,21 @@ export default function Body(){
         navigate('/bookingspage')
     }
 
-    const getHotels = async (filter) => {
-       // navigate('/hotelspage')
-        // const response = await HotelsApi(filter);
-    }
-
     useEffect(() => {
         searchInput()
     }, []);
+
+    const onClickMountain = () => {
+        navigate('/hotelspage/mountain');
+    }
+
+    const onClickSea= () => {
+        navigate('/hotelspage/sea');
+    }
+
+    const onClickCityBreak = () => {
+        navigate('/hotelspage/citybreak');
+    }
 
     return (
         <div>
@@ -49,19 +56,19 @@ export default function Body(){
             <h2 className="trip">Choose the perfect trip</h2>
             <div className="card">
             <Card
-                 img={mountainImage}
-                 btnText="Mountain"
-               //  onClickFunction={getHotels('Mountain')}
+                img={mountainImage}
+                btnText="Mountain"
+                onClickFunction={onClickMountain}
             />
             <Card
                 img={seaImage}
                 btnText="Sea"
-                //onClickFunction={getHotels('Sea')}
+                onClickFunction={onClickSea}
             />
             <Card
                 img={cityBreak}
                 btnText="City break"
-             //   onClickFunction={getHotels('CityBreak')}
+                onClickFunction={onClickCityBreak}
                 />
             </div>
         </div>

@@ -19,7 +19,9 @@ function App() {
           <Route exact path='/register' element={< Register />}></Route>
           <Route exact path='/mainpage' element={<ModifiedMainPage />}></Route>
           {/* <Route exact path='/bookingspage' element={<BookingsPage />}></Route> */}
-          {/* <Route exact path='/hotelspage' element={<HotelsPage />}></Route> */}
+          <Route exact path='/hotelspage/mountain' element={<HotelsPage filter={'Mountain'} />}></Route> 
+          <Route exact path='/hotelspage/sea' element={<HotelsPage filter={'Sea'} />}></Route> 
+          <Route exact path='/hotelspage/citybreak' element={<HotelsPage filter={'CityBreak'} />}></Route> 
         </Routes>
       </Router>
     </div>
