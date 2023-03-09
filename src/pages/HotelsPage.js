@@ -1,6 +1,7 @@
 import React from "react";
 import HotelsApi from "../api/HotelsApi"
 import { useEffect} from "react";
+import Hotels from "../components/Hotels"
 export default function HotelsPage({
     filter
 }){
@@ -18,7 +19,7 @@ export default function HotelsPage({
     }, []);
     return (
         <div>
-            
+            <Hotels />
         </div>
     )
 }

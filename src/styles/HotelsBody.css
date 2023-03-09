@@ -1,0 +1,51 @@
+.searchBar{
+    width:342px;
+    height:486px;
+    margin-left: 13px;
+    margin-top:129px;
+    background: #d9d9d9;
+
+}
+
+.search-text{
+    width: 81px;
+    height: 33px;
+    margin-left: 42px;
+    margin-top: 138px;
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 33px;
+    color: #000000;
+}
+
+h3{
+    width: 79px;
+    height: 20px;
+    margin-left: 36px;
+    margin-top: 20px;
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 20px;
+    color: #000000; 
+}
+
+.search-input{
+    width: 271px;
+    height: 29px;
+    margin-left: 36px;
+    background: #FFFFFF;
+}
+
+.search-button{
+    width: 198px;
+    height: 54px;
+    margin-left: 78px;
+    margin-top: 100px;
+    background: #B2ADAD;
+    border: none;
+    font-family: 'Inika';
+}
