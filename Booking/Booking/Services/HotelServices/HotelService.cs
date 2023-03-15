@@ -3,6 +3,8 @@ using Booking.DataTransferObjects;
 using BookingApp.Models.Domain;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Text;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Booking.Services.HotelServices
 {
@@ -33,6 +35,7 @@ namespace Booking.Services.HotelServices
             {
                 Town = newHotel.Town,
                 Category = newHotel.Category,
+                Rate = newHotel.Rate,
                 Image = Utils.Utils.ImageToByteArrayFromFilePath(newHotel.ImagePath)
             };
             context.Hotels.Add(hotel);
@@ -67,12 +70,23 @@ namespace Booking.Services.HotelServices
             else return null;
         }
 
-        public IEnumerable<Hotel>? GetHotelsWithFilter(string type)
+        public IEnumerable<HotelWriteDTO>? GetHotelsWithFilter(string type)
         {
             var hotels = context.Hotels.Where(h => h.Category.Equals(type)).ToList();
-
-            if (hotels != null)
-                return hotels;
+            List<HotelWriteDTO?> result = new List<HotelWriteDTO?>();
+            for (int i=0; i<hotels.Count;i++)
+            {
+                HotelWriteDTO hotelWriteDTO = new HotelWriteDTO()
+                {
+                    Town = hotels[i].Town,
+                    Category = hotels[i].Category,
+                    Rate = hotels[i].Rate,
+                    ImagePath = Utils.Utils.ByteArrayToImagebyMemoryStream(hotels[i].Image)
+                };
+                result.Add(hotelWriteDTO);
+            }
+            if (result != null)
+                return result;
             else return null;
         }
 

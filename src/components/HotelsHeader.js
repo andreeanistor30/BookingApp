@@ -18,9 +18,6 @@ export default function HotelsHeader () {
             <button type="button" className="header-login-button" onClick={onClickLogin}>Log in</button>
             <button type="button" className="header-register-button" onClick={OnClickRegister}>Create a new account</button> 
         </div>
-        <div>
-            
-        </div>
         </div>
     )
 }

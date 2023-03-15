@@ -1,10 +1,9 @@
 .searchBar{
-    width:342px;
-    height:486px;
-    margin-left: 13px;
+    width:263px;
+    height:329px;
+    margin-left: 15px;
     margin-top:129px;
     background: #d9d9d9;
-
 }
 
 .search-text{
@@ -24,7 +23,7 @@ h3{
     width: 79px;
     height: 20px;
     margin-left: 36px;
-    margin-top: 20px;
+    margin-top: 12px;
     font-family: 'Inika';
     font-style: normal;
     font-weight: 400;
@@ -34,18 +33,43 @@ h3{
 }
 
 .search-input{
-    width: 271px;
-    height: 29px;
-    margin-left: 36px;
+    width: 194px;
+    height: 22px;
+    margin-left: 15px;
     background: #FFFFFF;
 }
 
 .search-button{
-    width: 198px;
-    height: 54px;
-    margin-left: 78px;
-    margin-top: 100px;
+    width: 132px;
+    height: 28px;
+    margin-left: 65px;
+    margin-right: 65px;
+    margin-top: 27px;
     background: #B2ADAD;
     border: none;
     font-family: 'Inika';
+}
+
+.destination-image{
+    width: 14px;
+    height: 14px;
+    margin-left:10px;
+    margin-top:5px;
+}
+
+.calendar{
+    width: 14px;
+    height: 14px;
+    margin-left:10px;
+    margin-top:5px;
+}
+
+.destination-div{
+    display:flex;
+    flex-direction: row;
+}
+
+.calendar-div{
+    display:flex;
+    flex-direction: row;
 }

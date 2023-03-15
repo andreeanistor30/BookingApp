@@ -1,5 +1,6 @@
 ﻿using Booking.DataTransferObjects;
 using BookingApp.Models.Domain;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Booking.Services.HotelServices
 {
@@ -15,7 +16,7 @@ namespace Booking.Services.HotelServices
 
         public Hotel? UpdateHotel(Hotel h);
 
-        public IEnumerable<Hotel>? GetHotelsWithFilter(string type);
+        public IEnumerable<HotelWriteDTO>? GetHotelsWithFilter(string type);
 
     }
 }

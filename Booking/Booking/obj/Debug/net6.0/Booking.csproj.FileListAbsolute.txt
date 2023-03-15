@@ -83,9 +83,6 @@ C:\Users\nisto\bookingapp\Booking\Booking\bin\Debug\net6.0\runtimes\win-arm\nati
 C:\Users\nisto\bookingapp\Booking\Booking\bin\Debug\net6.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
 C:\Users\nisto\bookingapp\Booking\Booking\bin\Debug\net6.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
 C:\Users\nisto\bookingapp\Booking\Booking\bin\Debug\net6.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Users\nisto\bookingapp\Booking\Booking\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
-C:\Users\nisto\bookingapp\Booking\Booking\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
-C:\Users\nisto\bookingapp\Booking\Booking\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
 C:\Users\nisto\bookingapp\Booking\Booking\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 C:\Users\nisto\bookingapp\Booking\Booking\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\nisto\bookingapp\Booking\Booking\bin\Debug\net6.0\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
@@ -94,3 +91,5 @@ C:\Users\nisto\bookingapp\Booking\Booking\bin\Debug\net6.0\AutoMapper.dll
 C:\Users\nisto\bookingapp\Booking\Booking\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 C:\Users\nisto\bookingapp\Booking\Booking\bin\Debug\net6.0\Microsoft.Practices.ServiceLocation.dll
 C:\Users\nisto\bookingapp\Booking\Booking\bin\Debug\net6.0\XAct.Core.PCL.dll
+C:\Users\nisto\bookingapp\Booking\Booking\bin\Debug\net6.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\nisto\bookingapp\Booking\Booking\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
