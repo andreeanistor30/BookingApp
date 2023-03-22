@@ -1,16 +1,16 @@
-﻿using System.Drawing;
+﻿using Booking.Models.Domain;
+using System.Drawing;
 
 namespace Booking.DataTransferObjects
 {
     public class HotelWriteDTO
     {
-        public string Town { get; set; }
+        public Guid CityId { get; set; }
 
-        public string Category { get; set; }
+        public string Name { get; set; }
 
         public Image ImagePath { get; set; }
 
         public double Rate { get; set; }
-
     }
 }

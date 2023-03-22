@@ -10,12 +10,16 @@ namespace BookingApp.Models.Domain
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid Id { get; set; }
 
-        public string Town { get; set; }
+        [ForeignKey("CityId")]
+        public Guid CityId { get; set; }
+        public virtual City City { get; set; }
 
-        public string Category { get; set; }
+        [Required]
+        public string Name { get; set; }
 
-        public byte[] Image { get; set; } 
+        public byte[] Image { get; set; }
 
+        [Required]
         public double Rate { get; set; }
 
         public IEnumerable<Room> Rooms { get; set; }

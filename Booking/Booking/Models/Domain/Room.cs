@@ -13,8 +13,10 @@ namespace Booking.Models.Domain
         [ForeignKey("HotelId")]
         public Hotel Hotel { get; set; }
 
+        [Required]
         public int NumberOfRooms { get; set; }
 
+        [Required]
         public double Price { get; set; }
 
         [ForeignKey("RoomTypeId")]

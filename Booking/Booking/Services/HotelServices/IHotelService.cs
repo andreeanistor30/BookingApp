@@ -16,7 +16,7 @@ namespace Booking.Services.HotelServices
 
         public Hotel? UpdateHotel(Hotel h);
 
-        public IEnumerable<HotelWriteDTO>? GetHotelsWithFilter(string type);
+        //public IEnumerable<HotelWriteDTO>? GetHotelsWithFilter(string type);
 
     }
 }

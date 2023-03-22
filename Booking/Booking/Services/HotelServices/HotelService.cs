@@ -33,10 +33,9 @@ namespace Booking.Services.HotelServices
         {
             var hotel = new Hotel
             {
-                Town = newHotel.Town,
-                Category = newHotel.Category,
-                Rate = newHotel.Rate,
-                Image = Utils.Utils.ImageToByteArrayFromFilePath(newHotel.ImagePath)
+                CityId = newHotel.CityId,
+                Image = Utils.Utils.ImageToByteArrayFromFilePath(newHotel.ImagePath),
+                Name = newHotel.Name
             };
             context.Hotels.Add(hotel);
             context.SaveChanges();
@@ -59,8 +58,7 @@ namespace Booking.Services.HotelServices
         public Hotel? UpdateHotel(Hotel h)
         {
             var hotel = context.Hotels.Where(c => c.Id == h.Id).FirstOrDefault();
-            hotel.Town = h.Town;
-            hotel.Category = h.Category;
+            hotel.City = h.City;
             if (hotel != null)
             {
                 context.Update(hotel);
@@ -70,25 +68,26 @@ namespace Booking.Services.HotelServices
             else return null;
         }
 
-        public IEnumerable<HotelWriteDTO>? GetHotelsWithFilter(string type)
-        {
-            var hotels = context.Hotels.Where(h => h.Category.Equals(type)).ToList();
-            List<HotelWriteDTO?> result = new List<HotelWriteDTO?>();
-            for (int i=0; i<hotels.Count;i++)
-            {
-                HotelWriteDTO hotelWriteDTO = new HotelWriteDTO()
-                {
-                    Town = hotels[i].Town,
-                    Category = hotels[i].Category,
-                    Rate = hotels[i].Rate,
-                    ImagePath = Utils.Utils.ByteArrayToImagebyMemoryStream(hotels[i].Image)
-                };
-                result.Add(hotelWriteDTO);
-            }
-            if (result != null)
-                return result;
-            else return null;
-        }
+        //public IEnumerable<HotelWriteDTO>? GetHotelsWithFilter(string type)
+        //{
+        //    var hotels = context.Hotels.Where(h => h.Category.Equals(type)).ToList();
+        //    List<HotelWriteDTO?> result = new List<HotelWriteDTO?>();
+        //    for (int i = 0; i < hotels.Count; i++)
+        //    {
+        //        HotelWriteDTO hotelWriteDTO = new HotelWriteDTO()
+        //        {
+        //            CityId = hotels[i].CityId,
+        //            Category = hotels[i].Category,
+        //            ImagePath = Utils.Utils.ByteArrayToImagebyMemoryStream(hotels[i].Image),
+        //            Name= hotels[i].Name,
+        //        };
+        //        result.Add(hotelWriteDTO);
+        //    }
+        //    if (result != null)
+        //        return result;
+        //    else return null;
+        //}
 
     }
 }
+

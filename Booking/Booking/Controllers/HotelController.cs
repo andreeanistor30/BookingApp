@@ -42,7 +42,7 @@ namespace Booking.Controllers
         [HttpPost]
         public ActionResult<Hotel> InsertHotel(HotelDTO hotel)
         {
-            var newHotel=service.InsertHotel(hotel);
+            var newHotel = service.InsertHotel(hotel);
             if (newHotel != null)
             {
                 return Ok();
@@ -71,15 +71,15 @@ namespace Booking.Controllers
             else return NotFound();
         }
 
-        [HttpGet("/getByFilter")]
-        public ActionResult<Hotel> GetHotelsByFilter(string filter)
-        {
-            var hotels = service.GetHotelsWithFilter(filter);
+        //[HttpGet("/getByFilter")]
+        //public ActionResult<Hotel> GetHotelsByFilter(string filter)
+        //{
+        //    var hotels = service.GetHotelsWithFilter(filter);
 
-            if (hotels != null)
-                return Ok(hotels);
-            else return NotFound();
-        }
+        //    if (hotels != null)
+        //        return Ok(hotels);
+        //    else return NotFound();
+        //}
 
 
 

@@ -9,9 +9,12 @@ namespace Booking.Models.Domain
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid Id { get; set; }
 
-
+        [Required]
+        [StringLength(20)]
         public string FirstName { get; set; }
 
+        [Required]
+        [StringLength(20)]
         public string LastName { get; set; }
 
         [EmailAddress]
@@ -21,6 +24,8 @@ namespace Booking.Models.Domain
 
         public string Country { get; set; }
 
+        [Required]
+        [StringLength(20)]
         public string UserName { get; set; }
 
         [DataType(DataType.Password)]

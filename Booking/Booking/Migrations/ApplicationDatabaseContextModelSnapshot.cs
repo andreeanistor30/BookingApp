@@ -158,11 +158,13 @@ namespace Booking.Migrations
 
                     b.Property<string>("FirstName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
                     b.Property<string>("LastName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
                     b.Property<string>("Password")
                         .IsRequired()
@@ -170,7 +172,8 @@ namespace Booking.Migrations
 
                     b.Property<string>("UserName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
                     b.HasKey("Id");
 
@@ -183,22 +186,23 @@ namespace Booking.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("Category")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<Guid>("CityId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<byte[]>("Image")
                         .IsRequired()
                         .HasColumnType("varbinary(max)");
 
-                    b.Property<double>("Rate")
-                        .HasColumnType("float");
-
-                    b.Property<string>("Town")
+                    b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<double>("Rate")
+                        .HasColumnType("float");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("CityId");
 
                     b.ToTable("Hotels");
                 });
@@ -252,6 +256,22 @@ namespace Booking.Migrations
                     b.Navigation("Hotel");
 
                     b.Navigation("RoomType");
+                });
+
+            modelBuilder.Entity("BookingApp.Models.Domain.Hotel", b =>
+                {
+                    b.HasOne("Booking.Models.Domain.City", "City")
+                        .WithMany("Hotel")
+                        .HasForeignKey("CityId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("City");
+                });
+
+            modelBuilder.Entity("Booking.Models.Domain.City", b =>
+                {
+                    b.Navigation("Hotel");
                 });
 
             modelBuilder.Entity("Booking.Models.Domain.CityType", b =>
